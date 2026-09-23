@@ -1,0 +1,45 @@
+# Paso 4 · Lo que le falta al compose oficial para hablar con Google Cloud.
+#
+# El fichero base es el oficial de Airflow 2.11.1, descargado tal cual:
+#   curl -LfO https://airflow.apache.org/docs/apache-airflow/2.11.1/docker-compose.yaml
+# Apache avisa de para qué sirve: "This procedure can be useful for learning and exploration. However, adapting
+# it for use in real-world situations can be complicated and the docker compose file does not provide any
+# security guarantees required for production system."
+#
+# Este override añade solo dos cosas:
+#
+# 1. **Credenciales por ADC, sin claves en disco.** Se monta en solo lectura el fichero que crea
+#    `gcloud auth application-default login --impersonate-service-account=...`. Google lo documenta como una de
+#    las tres fuentes que busca ADC: "A credential file created by using the gcloud auth application-default
+#    login command". Al haberse creado con impersonación, el contenedor actúa como la cuenta del pipeline.
+#    https://docs.cloud.google.com/docs/authentication/application-default-credentials (act. 2026-09-10)
+#
+#    ⚠️ Ojo: `CLOUDSDK_AUTH_IMPERSONATE_SERVICE_ACCOUNT`, que sí funciona con gcloud y bq, es una propiedad de la
+#    CLI y no aparece en el orden de búsqueda de ADC. No sirve para las librerías cliente que usan los operadores.
+#
+# 2. **El provider de Google.** `_PIP_ADDITIONAL_REQUIREMENTS` es la vía del propio compose, con su advertencia:
+#    "Use _PIP_ADDITIONAL_REQUIREMENTS option ONLY for a quick checks". Para algo estable, se construye imagen.
+#    ⚠️ Sin confirmar si la imagen `apache/airflow:2.11.1` ya trae el provider; se fija la versión y, si ya viene,
+#    pip no hace nada.
+
+x-airflow-extra: &airflow-extra
+  environment:
+    GOOGLE_APPLICATION_CREDENTIALS: /opt/airflow/gcp/application_default_credentials.json
+    GOOGLE_CLOUD_PROJECT: sdag-lab-000000
+    _PIP_ADDITIONAL_REQUIREMENTS: apache-airflow-providers-google==22.4.0
+  volumes:
+    - ${ADC_PATH:?falta ADC_PATH en .env}:/opt/airflow/gcp/application_default_credentials.json:ro
+
+services:
+  airflow-webserver:
+    <<: *airflow-extra
+  airflow-scheduler:
+    <<: *airflow-extra
+  airflow-worker:
+    <<: *airflow-extra
+  airflow-triggerer:
+    <<: *airflow-extra
+  airflow-init:
+    <<: *airflow-extra
+  airflow-cli:
+    <<: *airflow-extra

@@ -1,0 +1,1 @@
+WARNING: This command is using service account impersonation. All API calls will be executed as [sdag-pipeline@sdag-lab-000000.iam.gserviceaccount.com].

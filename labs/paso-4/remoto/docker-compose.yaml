@@ -1,0 +1,44 @@
+# Paso 4 · Airflow 2.11.1 en UN solo contenedor, para correr en un servidor con poca RAM libre.
+#
+# `airflow standalone` "initializes the database, creates a user, and starts all components", con SQLite y
+# SequentialExecutor, "which will only run task instances sequentially". Apache avisa de que no es para
+# producción; para este laboratorio basta (el DAG ya lleva max_active_runs=1).
+# https://airflow.apache.org/docs/apache-airflow/2.11.1/start.html
+#
+# Seguridad en un servidor compartido:
+# · La interfaz escucha SOLO en 127.0.0.1: se abre con un túnel SSH, nunca expuesta a internet.
+# · Las credenciales se montan en solo lectura desde ./gcp, que tiene permisos 600 y se borra al acabar.
+
+services:
+  airflow:
+    image: apache/airflow:2.11.1
+    container_name: sdag-airflow
+    # Solo base de datos + scheduler, SIN webserver ni triggerer. Con `standalone` los tres procesos, más cada
+    # tarea, compartían los 2 GiB: en reposo ya estaba al 85 % y la primera tarea murió por falta de memoria
+    # ("Job 5 was killed before it finished (likely due to running out of memory)", oom_killed=true,
+    # 2026-09-14). El criterio no necesita la interfaz: la evidencia sale de la CLI y de BigQuery.
+    # El sensor del DAG usa mode="reschedule", no es diferible, así que el triggerer no hace falta.
+    command: ["bash", "-c", "airflow db migrate && airflow scheduler"]
+    # Mismo patrón que el compose oficial (`user: "${AIRFLOW_UID:-50000}:0"`): el proceso corre con el UID del
+    # usuario del servidor, así puede leer el fichero de credenciales con permisos 600 sin abrirlo a nadie más.
+    user: "${AIRFLOW_UID:-50000}:0"
+    restart: "no"
+    environment:
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      GOOGLE_APPLICATION_CREDENTIALS: /opt/airflow/gcp/application_default_credentials.json
+      GOOGLE_CLOUD_PROJECT: sdag-lab-000000
+      # Conexión vacía = usa ADC. Sin ella, los hooks de Google fallan con "The conn_id `google_cloud_default` isn't
+      # defined": `airflow standalone` creaba las conexiones por defecto, pero `airflow db migrate` no.
+      # "Application Default Credentials can be used for a connection by specifying an empty URI. For example:
+      #  export AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT = 'google-cloud-platform://'"
+      # https://airflow.apache.org/docs/apache-airflow-providers-google/stable/connections/gcp.html
+      # No contiene ningún secreto. Ojo: las conexiones por variable de entorno "will not show up in the Airflow UI
+      # or using airflow connections list", así que se comprueban con el hook, no con esa lista.
+      AIRFLOW_CONN_GOOGLE_CLOUD_DEFAULT: "google-cloud-platform://"
+      # Sin _PIP_ADDITIONAL_REQUIREMENTS a propósito. La imagen ya trae apache-airflow-providers-google 19.5.0, y
+      # sus firmas reales (leídas con ast del paquete de PyPI el 2026-09-14) tienen todos los parámetros que usa el
+      # DAG. El pip de la 22.4.0 en el arranque sumó ~0,55 GB y ayudó a llevar el disco de vps-a al 98 %.
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./gcp/application_default_credentials.json:/opt/airflow/gcp/application_default_credentials.json:ro
+    mem_limit: 2g

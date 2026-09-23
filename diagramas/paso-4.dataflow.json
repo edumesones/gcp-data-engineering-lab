@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "Paso 4 · Un backfill que da lo mismo que tres días",
+    "output": "paso-4.html",
+    "quality_profile": "showcase",
+    "viewBox": [1068, 560],
+    "legend": {
+      "entries": {
+        "security": { "label": "identidad y permisos" }
+      }
+    }
+  },
+  "stages": [
+    { "label": "Orquestación" },
+    { "label": "Aterrizaje" },
+    { "label": "Staging" },
+    { "label": "MERGE" },
+    { "label": "Destinos" }
+  ],
+  "nodes": [
+    { "id": "airflow", "type": "backend", "label": "Airflow 2.11.1", "sublabel": "scheduler · 1 contenedor", "stage": 0, "row": 0, "tag": "todo sale de ds" },
+    { "id": "pipeline", "type": "security", "label": "sdag-pipeline", "sublabel": "ADC impersonada", "stage": 0, "row": 2, "tag": "sin claves" },
+    { "id": "gcs", "type": "cloud", "label": "GCS landing", "sublabel": "3 días · 70.817 filas", "stage": 1, "row": 0, "tag": "sensor" },
+    { "id": "staging", "type": "database", "label": "stg_p4_día", "sublabel": "WRITE_TRUNCATE", "stage": 2, "row": 0, "tag": "validada" },
+    { "id": "merge", "type": "backend", "label": "MERGE", "sublabel": "job id por intento", "stage": 3, "row": 0, "tag": "relanzar: 0 filas" },
+    { "id": "diario", "type": "database", "label": "p4_diario", "sublabel": "3 ejecuciones diarias", "stage": 4, "row": 0 },
+    { "id": "backfill", "type": "database", "label": "p4_backfill", "sublabel": "backfill 02 → 04", "stage": 4, "row": 2 }
+  ],
+  "flows": [
+    { "from": "airflow", "to": "gcs", "label": "espera fichero", "classification": "dt = ds", "variant": "emphasis" },
+    { "from": "pipeline", "to": "airflow", "label": "credenciales", "classification": "solo lectura", "variant": "security" },
+    { "from": "gcs", "to": "staging", "label": "carga", "classification": "esquema explícito", "variant": "emphasis" },
+    { "from": "staging", "to": "merge", "label": "dedup", "classification": "ROW_NUMBER" },
+    { "from": "merge", "to": "diario", "label": "destino por defecto", "classification": "conf vacía", "variant": "emphasis", "route": "straight", "labelDy": -26 },
+    { "from": "merge", "to": "backfill", "label": "--conf destino", "classification": "otro historial" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Criterio medido", "items": ["70.817 filas y huella 792921986835855836 en las dos tablas", "EXCEPT DISTINCT: 0 filas en cada sentido", "Relanzados los 3 días de cada camino: MERGE con 0 / 0 / 0"] },
+    { "dot": "amber", "title": "Cómo corre", "items": ["Servidor propio, no el servicio gestionado: cobra con el entorno parado", "db migrate + scheduler: ~470 MiB; el compose oficial pide 4 GB", "Al acabar: contenedor borrado y credenciales con shred"] },
+    { "dot": "rose", "title": "Cuatro «success» engañosos", "items": ["Manual: el intervalo termina en la fecha, y se cargó el día anterior", "Backfill sobre fechas ya ejecutadas: succeeded: 15 y 0 filas", "Job id fijo: relanzar falla con already exists in DONE", "end_date a las 00:00: ejecución en success con 0 tareas"] }
+  ]
+}

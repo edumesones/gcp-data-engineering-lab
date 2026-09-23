@@ -1,0 +1,69 @@
+{
+  "generado": "2026-09-12T12:25:02.164867+00:00",
+  "impersonando": "sdag-pipeline@sdag-lab-000000.iam.gserviceaccount.com",
+  "proyecto": "sdag-lab-000000",
+  "consultas": [
+    {
+      "etiqueta": "1 · UN DÍA. Filtro constante sobre la columna de partición: debe leer 1 partición",
+      "job_id": "sdag_p2_20260912_122214_1",
+      "ok": true,
+      "particiones_procesadas": "1",
+      "bytes_procesados": "966472",
+      "bytes_facturados": "10485760",
+      "precision_estimacion": null,
+      "desde_cache": false
+    },
+    {
+      "etiqueta": "2 · LOS 90 DÍAS. Misma consulta, rango completo: debe leer 90 particiones",
+      "job_id": "sdag_p2_20260912_122214_2",
+      "ok": true,
+      "particiones_procesadas": "90",
+      "bytes_procesados": "68515449",
+      "bytes_facturados": "69206016",
+      "precision_estimacion": null,
+      "desde_cache": false
+    },
+    {
+      "etiqueta": "3 · SIN FILTRO DE PARTICIÓN. Debe FALLAR, no leer la tabla entera:",
+      "job_id": "sdag_p2_20260912_122214_3",
+      "ok": false,
+      "error": "Error in query string: Error processing job 'sdag- lab-260911:sdag_p2_20260912_122214_3': Cannot query over table 'sdag- lab-260911.banca.transacciones' without a filter over column(s) 'fecha' that can be used for partition elimination",
+      "particiones_procesadas": null,
+      "bytes_procesados": null,
+      "bytes_facturados": null,
+      "precision_estimacion": null,
+      "desde_cache": false
+    },
+    {
+      "etiqueta": "4 · ANTIPATRÓN: función sobre la columna de partición",
+      "job_id": "sdag_p2_20260912_122214_4",
+      "ok": false,
+      "error": "Error in query string: Error processing job 'sdag- lab-260911:sdag_p2_20260912_122214_4': Cannot query over table 'sdag- lab-260911.banca.transacciones' without a filter over column(s) 'fecha' that can be used for partition elimination",
+      "particiones_procesadas": null,
+      "bytes_procesados": null,
+      "bytes_facturados": null,
+      "precision_estimacion": null,
+      "desde_cache": false
+    },
+    {
+      "etiqueta": "5 · REFERENCIA PARA EL CLUSTERING: una partición, sin filtrar por cuenta",
+      "job_id": "sdag_p2_20260912_122214_5",
+      "ok": true,
+      "particiones_procesadas": "1",
+      "bytes_procesados": "1572459",
+      "bytes_facturados": "10485760",
+      "precision_estimacion": null,
+      "desde_cache": false
+    },
+    {
+      "etiqueta": "6 · CLUSTERING: misma partición y mismas columnas, filtrando por la primera columna de clustering",
+      "job_id": "sdag_p2_20260912_122214_6",
+      "ok": true,
+      "particiones_procesadas": "1",
+      "bytes_procesados": "1572459",
+      "bytes_facturados": "10485760",
+      "precision_estimacion": null,
+      "desde_cache": false
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "generado": "2026-09-12T12:26:57.663834+00:00",
+  "impersonando": "sdag-pipeline@sdag-lab-000000.iam.gserviceaccount.com",
+  "proyecto": "sdag-lab-000000",
+  "consultas": [
+    {
+      "etiqueta": "1 · 90 días, sin filtrar por cuenta",
+      "job_id": "sdag_p2_20260912_122629_1",
+      "ok": true,
+      "particiones_procesadas": "90",
+      "bytes_procesados": "111585423",
+      "bytes_facturados": "112197632",
+      "precision_estimacion": null,
+      "desde_cache": false
+    },
+    {
+      "etiqueta": "2 · 90 días, filtrando por la primera columna de clustering",
+      "job_id": "sdag_p2_20260912_122629_2",
+      "ok": true,
+      "particiones_procesadas": "90",
+      "bytes_procesados": "107431263",
+      "bytes_facturados": "108003328",
+      "precision_estimacion": null,
+      "desde_cache": false
+    }
+  ]
+}

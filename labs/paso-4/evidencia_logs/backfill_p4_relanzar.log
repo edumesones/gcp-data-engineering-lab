@@ -1,0 +1,218 @@
+/home/airflow/.local/lib/python3.12/site-packages/airflow/metrics/base_stats_logger.py:22 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+/home/airflow/.local/lib/python3.12/site-packages/airflow/triggers/base.py:27 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+[2026-09-14T10:11:34.901+0000] {plugins.py:37} INFO - setup plugin alembic.autogenerate.schemas
+[2026-09-14T10:11:34.902+0000] {plugins.py:37} INFO - setup plugin alembic.autogenerate.tables
+[2026-09-14T10:11:34.902+0000] {plugins.py:37} INFO - setup plugin alembic.autogenerate.types
+[2026-09-14T10:11:34.902+0000] {plugins.py:37} INFO - setup plugin alembic.autogenerate.constraints
+[2026-09-14T10:11:34.902+0000] {plugins.py:37} INFO - setup plugin alembic.autogenerate.defaults
+[2026-09-14T10:11:34.902+0000] {plugins.py:37} INFO - setup plugin alembic.autogenerate.comments
+[2026-09-14T10:11:35.151+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags
+[2026-09-14T10:11:38.625+0000] {executor_loader.py:258} INFO - Loaded executor: SequentialExecutor
+[2026-09-14T10:11:38.666+0000] {base_executor.py:169} INFO - Adding to queue: ['airflow', 'tasks', 'run', 'sdag_ingesta_diaria', 'esperar_fichero', 'backfill__2026-09-03T00:00:00+00:00', '--depends-on-past', 'ignore', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/sdag_ingesta_diaria.py', '--cfg-path', '/tmp/tmpu371n_4a']
+[2026-09-14T10:11:38.681+0000] {sequential_executor.py:84} INFO - Executing command: ['airflow', 'tasks', 'run', 'sdag_ingesta_diaria', 'esperar_fichero', 'backfill__2026-09-03T00:00:00+00:00', '--depends-on-past', 'ignore', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/sdag_ingesta_diaria.py', '--cfg-path', '/tmp/tmpu371n_4a']
+/home/airflow/.local/lib/python3.12/site-packages/airflow/metrics/base_stats_logger.py:22 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+/home/airflow/.local/lib/python3.12/site-packages/airflow/triggers/base.py:27 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+[2026-09-14T10:11:40.949+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/sdag_ingesta_diaria.py
+[2026-09-14T10:11:44.707+0000] {task_command.py:467} INFO - Running <TaskInstance: sdag_ingesta_diaria.esperar_fichero backfill__2026-09-03T00:00:00+00:00 [queued]> on host a99e07d6339f
+[2026-09-14T10:11:46.763+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 4 | succeeded: 1 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 4
+[2026-09-14T10:11:47.797+0000] {base_executor.py:169} INFO - Adding to queue: ['airflow', 'tasks', 'run', 'sdag_ingesta_diaria', 'cargar_staging', 'backfill__2026-09-03T00:00:00+00:00', '--depends-on-past', 'ignore', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/sdag_ingesta_diaria.py', '--cfg-path', '/tmp/tmpdu_jmy3c']
+[2026-09-14T10:11:47.829+0000] {sequential_executor.py:84} INFO - Executing command: ['airflow', 'tasks', 'run', 'sdag_ingesta_diaria', 'cargar_staging', 'backfill__2026-09-03T00:00:00+00:00', '--depends-on-past', 'ignore', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/sdag_ingesta_diaria.py', '--cfg-path', '/tmp/tmpdu_jmy3c']
+/home/airflow/.local/lib/python3.12/site-packages/airflow/metrics/base_stats_logger.py:22 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+/home/airflow/.local/lib/python3.12/site-packages/airflow/triggers/base.py:27 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+[2026-09-14T10:11:50.084+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/sdag_ingesta_diaria.py
+[2026-09-14T10:11:53.740+0000] {task_command.py:467} INFO - Running <TaskInstance: sdag_ingesta_diaria.cargar_staging backfill__2026-09-03T00:00:00+00:00 [queued]> on host a99e07d6339f
+[2026-09-14T10:11:57.524+0000] {backfill_job_runner.py:303} WARNING - TaskInstanceKey(dag_id='sdag_ingesta_diaria', task_id='cargar_staging', run_id='backfill__2026-09-03T00:00:00+00:00', try_number=2, map_index=-1) state success not in running=dict_values([<TaskInstance: sdag_ingesta_diaria.cargar_staging backfill__2026-09-03T00:00:00+00:00 [queued]>])
+[2026-09-14T10:11:57.530+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 3 | succeeded: 2 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 3
+[2026-09-14T10:11:58.564+0000] {base_executor.py:169} INFO - Adding to queue: ['airflow', 'tasks', 'run', 'sdag_ingesta_diaria', 'validar_staging', 'backfill__2026-09-03T00:00:00+00:00', '--depends-on-past', 'ignore', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/sdag_ingesta_diaria.py', '--cfg-path', '/tmp/tmp1a3feq1e']
+[2026-09-14T10:11:58.590+0000] {job.py:229} INFO - Heartbeat recovered after 10.76 seconds
+[2026-09-14T10:11:58.591+0000] {sequential_executor.py:84} INFO - Executing command: ['airflow', 'tasks', 'run', 'sdag_ingesta_diaria', 'validar_staging', 'backfill__2026-09-03T00:00:00+00:00', '--depends-on-past', 'ignore', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/sdag_ingesta_diaria.py', '--cfg-path', '/tmp/tmp1a3feq1e']
+/home/airflow/.local/lib/python3.12/site-packages/airflow/metrics/base_stats_logger.py:22 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+/home/airflow/.local/lib/python3.12/site-packages/airflow/triggers/base.py:27 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+[2026-09-14T10:12:00.807+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/sdag_ingesta_diaria.py
+[2026-09-14T10:12:04.526+0000] {task_command.py:467} INFO - Running <TaskInstance: sdag_ingesta_diaria.validar_staging backfill__2026-09-03T00:00:00+00:00 [queued]> on host a99e07d6339f
+[2026-09-14T10:12:07.443+0000] {backfill_job_runner.py:303} WARNING - TaskInstanceKey(dag_id='sdag_ingesta_diaria', task_id='validar_staging', run_id='backfill__2026-09-03T00:00:00+00:00', try_number=2, map_index=-1) state success not in running=dict_values([<TaskInstance: sdag_ingesta_diaria.validar_staging backfill__2026-09-03T00:00:00+00:00 [queued]>])
+[2026-09-14T10:12:07.454+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 2
+[2026-09-14T10:12:08.490+0000] {base_executor.py:169} INFO - Adding to queue: ['airflow', 'tasks', 'run', 'sdag_ingesta_diaria', 'merge_al_destino', 'backfill__2026-09-03T00:00:00+00:00', '--depends-on-past', 'ignore', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/sdag_ingesta_diaria.py', '--cfg-path', '/tmp/tmpj89s7vx8']
+[2026-09-14T10:12:08.511+0000] {sequential_executor.py:84} INFO - Executing command: ['airflow', 'tasks', 'run', 'sdag_ingesta_diaria', 'merge_al_destino', 'backfill__2026-09-03T00:00:00+00:00', '--depends-on-past', 'ignore', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/sdag_ingesta_diaria.py', '--cfg-path', '/tmp/tmpj89s7vx8']
+/home/airflow/.local/lib/python3.12/site-packages/airflow/metrics/base_stats_logger.py:22 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+/home/airflow/.local/lib/python3.12/site-packages/airflow/triggers/base.py:27 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+[2026-09-14T10:12:10.804+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/sdag_ingesta_diaria.py
+[2026-09-14T10:12:14.524+0000] {task_command.py:467} INFO - Running <TaskInstance: sdag_ingesta_diaria.merge_al_destino backfill__2026-09-03T00:00:00+00:00 [queued]> on host a99e07d6339f
+[2026-09-14T10:12:16.761+0000] {backfill_job_runner.py:303} WARNING - TaskInstanceKey(dag_id='sdag_ingesta_diaria', task_id='merge_al_destino', run_id='backfill__2026-09-03T00:00:00+00:00', try_number=2, map_index=-1) state success not in running=dict_values([<TaskInstance: sdag_ingesta_diaria.merge_al_destino backfill__2026-09-03T00:00:00+00:00 [queued]>])
+[2026-09-14T10:12:16.762+0000] {backfill_job_runner.py:214} WARNING - Task instance <TaskInstance: sdag_ingesta_diaria.merge_al_destino backfill__2026-09-03T00:00:00+00:00 [up_for_retry]> is up for retry
+[2026-09-14T10:12:16.767+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:17.823+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:18.863+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:19.905+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:20.946+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:21.980+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:23.028+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:24.063+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:25.105+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:26.149+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:27.187+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:28.226+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:29.263+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:30.307+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:31.346+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:32.385+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:33.433+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:34.472+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:35.512+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:36.544+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:37.581+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:38.616+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:39.657+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:40.696+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:41.737+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:42.784+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:43.836+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:44.859+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:45.897+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:46.932+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:47.977+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:49.013+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:50.051+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:51.090+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:52.131+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:53.168+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:54.218+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:55.255+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:56.294+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:57.320+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:58.360+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:12:59.408+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:00.448+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:01.492+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:02.537+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:03.575+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:04.630+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:05.669+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:06.712+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:07.757+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:08.799+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:09.847+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:10.901+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:11.952+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:12.993+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:14.033+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:15.084+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:16.118+0000] {base_executor.py:169} INFO - Adding to queue: ['airflow', 'tasks', 'run', 'sdag_ingesta_diaria', 'merge_al_destino', 'backfill__2026-09-03T00:00:00+00:00', '--depends-on-past', 'ignore', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/sdag_ingesta_diaria.py', '--cfg-path', '/tmp/tmprez54na1']
+[2026-09-14T10:13:16.128+0000] {sequential_executor.py:84} INFO - Executing command: ['airflow', 'tasks', 'run', 'sdag_ingesta_diaria', 'merge_al_destino', 'backfill__2026-09-03T00:00:00+00:00', '--depends-on-past', 'ignore', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/sdag_ingesta_diaria.py', '--cfg-path', '/tmp/tmprez54na1']
+/home/airflow/.local/lib/python3.12/site-packages/airflow/metrics/base_stats_logger.py:22 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+/home/airflow/.local/lib/python3.12/site-packages/airflow/triggers/base.py:27 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+[2026-09-14T10:13:18.251+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/sdag_ingesta_diaria.py
+[2026-09-14T10:13:21.886+0000] {task_command.py:467} INFO - Running <TaskInstance: sdag_ingesta_diaria.merge_al_destino backfill__2026-09-03T00:00:00+00:00 [queued]> on host a99e07d6339f
+[2026-09-14T10:13:23.668+0000] {backfill_job_runner.py:303} WARNING - TaskInstanceKey(dag_id='sdag_ingesta_diaria', task_id='merge_al_destino', run_id='backfill__2026-09-03T00:00:00+00:00', try_number=3, map_index=-1) state success not in running=dict_values([<TaskInstance: sdag_ingesta_diaria.merge_al_destino backfill__2026-09-03T00:00:00+00:00 [queued]>])
+[2026-09-14T10:13:23.670+0000] {backfill_job_runner.py:214} WARNING - Task instance <TaskInstance: sdag_ingesta_diaria.merge_al_destino backfill__2026-09-03T00:00:00+00:00 [up_for_retry]> is up for retry
+[2026-09-14T10:13:23.681+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:24.732+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:25.770+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:26.811+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:27.854+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:28.894+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:29.950+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:30.991+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:32.035+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:33.075+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:34.114+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:35.140+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:36.186+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:37.231+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:38.273+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:39.316+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:40.366+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:41.406+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:42.449+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:43.471+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:44.495+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:45.525+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:46.563+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:47.622+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:48.662+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:49.702+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:50.749+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:51.790+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:52.832+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:53.870+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:54.914+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:55.961+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:57.000+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:58.039+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:13:59.082+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:00.135+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:01.187+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:02.227+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:03.251+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:04.289+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:05.329+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:06.375+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:07.412+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:08.453+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:09.493+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:10.536+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:11.582+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:12.622+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:13.645+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:14.685+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:15.726+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:16.776+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:17.820+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:18.860+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:19.899+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:20.936+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:21.978+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 0 of 1 | tasks waiting: 2 | succeeded: 3 | running: 0 | failed: 0 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:23.016+0000] {base_executor.py:169} INFO - Adding to queue: ['airflow', 'tasks', 'run', 'sdag_ingesta_diaria', 'merge_al_destino', 'backfill__2026-09-03T00:00:00+00:00', '--depends-on-past', 'ignore', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/sdag_ingesta_diaria.py', '--cfg-path', '/tmp/tmph1bmmdwa']
+[2026-09-14T10:14:23.027+0000] {sequential_executor.py:84} INFO - Executing command: ['airflow', 'tasks', 'run', 'sdag_ingesta_diaria', 'merge_al_destino', 'backfill__2026-09-03T00:00:00+00:00', '--depends-on-past', 'ignore', '--local', '--pool', 'default_pool', '--subdir', 'DAGS_FOLDER/sdag_ingesta_diaria.py', '--cfg-path', '/tmp/tmph1bmmdwa']
+/home/airflow/.local/lib/python3.12/site-packages/airflow/metrics/base_stats_logger.py:22 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+/home/airflow/.local/lib/python3.12/site-packages/airflow/triggers/base.py:27 RemovedInAirflow3Warning: Timer and timing metrics publish in seconds were deprecated. It is enabled by default from Airflow 3 onwards. Enable timer_unit_consistency to publish all the timer and timing metrics in milliseconds.
+[2026-09-14T10:14:25.191+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/sdag_ingesta_diaria.py
+[2026-09-14T10:14:29.007+0000] {task_command.py:467} INFO - Running <TaskInstance: sdag_ingesta_diaria.merge_al_destino backfill__2026-09-03T00:00:00+00:00 [queued]> on host a99e07d6339f
+[2026-09-14T10:14:30.838+0000] {backfill_job_runner.py:303} WARNING - TaskInstanceKey(dag_id='sdag_ingesta_diaria', task_id='merge_al_destino', run_id='backfill__2026-09-03T00:00:00+00:00', try_number=4, map_index=-1) state success not in running=dict_values([<TaskInstance: sdag_ingesta_diaria.merge_al_destino backfill__2026-09-03T00:00:00+00:00 [queued]>])
+[2026-09-14T10:14:30.840+0000] {backfill_job_runner.py:208} ERROR - Task instance <TaskInstance: sdag_ingesta_diaria.merge_al_destino backfill__2026-09-03T00:00:00+00:00 [failed]> failed
+[2026-09-14T10:14:30.843+0000] {dagrun.py:823} ERROR - Marking run <DagRun sdag_ingesta_diaria @ 2026-09-03 00:00:00+00:00: backfill__2026-09-03T00:00:00+00:00, state:running, queued_at: 2026-09-14 10:11:38.603831+00:00. externally triggered: False> failed
+[2026-09-14T10:14:30.844+0000] {dagrun.py:905} INFO - DagRun Finished: dag_id=sdag_ingesta_diaria, execution_date=2026-09-03 00:00:00+00:00, run_id=backfill__2026-09-03T00:00:00+00:00, run_start_date=2026-09-14 10:11:38.629574+00:00, run_end_date=2026-09-14 10:14:30.844003+00:00, run_duration=172.214429, state=failed, external_trigger=False, run_type=backfill, data_interval_start=2026-09-03 00:00:00+00:00, data_interval_end=2026-09-04 00:00:00+00:00, dag_hash=None
+[2026-09-14T10:14:30.844+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 1 of 1 | tasks waiting: 1 | succeeded: 3 | running: 0 | failed: 1 | skipped: 0 | deadlocked: 0 | not ready: 1
+[2026-09-14T10:14:31.856+0000] {backfill_job_runner.py:550} ERROR - Task instance <TaskInstance: sdag_ingesta_diaria.comprobar_destino backfill__2026-09-03T00:00:00+00:00 [upstream_failed]> with state upstream_failed
+[2026-09-14T10:14:31.869+0000] {backfill_job_runner.py:464} INFO - [backfill progress] | finished run 1 of 1 | tasks waiting: 0 | succeeded: 3 | running: 0 | failed: 2 | skipped: 0 | deadlocked: 0 | not ready: 0
+Traceback (most recent call last):
+  File "/home/airflow/.local/bin/airflow", line 6, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/__main__.py", line 62, in main
+    args.func(args)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/providers_configuration_loader.py", line 55, in wrapped_function
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/dag_command.py", line 165, in dag_backfill
+    _run_dag_backfill(dags, args)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/dag_command.py", line 109, in _run_dag_backfill
+    dag.run(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/dag.py", line 2948, in run
+    run_job(job=job, execute_callable=job_runner._execute)
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 421, in run_job
+    return execute_job(job, execute_callable=execute_callable)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/job.py", line 450, in execute_job
+    ret = execute_callable()
+          ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/jobs/backfill_job_runner.py", line 1025, in _execute
+    raise BackfillUnfinished(err, ti_status)
+airflow.exceptions.BackfillUnfinished: Some task instances failed:
+DAG ID               Task ID            Run ID                                 Try number
+-------------------  -----------------  -----------------------------------  ------------
+sdag_ingesta_diaria  comprobar_destino  backfill__2026-09-03T00:00:00+00:00             1
+sdag_ingesta_diaria  merge_al_destino   backfill__2026-09-03T00:00:00+00:00             3
+EXIT=1

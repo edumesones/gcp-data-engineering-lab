@@ -1,0 +1,41 @@
+# --- Credenciales: nunca en el repo ---
+*.key
+*.pem
+*.p12
+*.json.key
+*-key.json
+service-account*.json
+application_default_credentials.json
+*credentials*.json
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# --- Python y entornos ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# --- Logs ---
+*.log
+airflow/logs/
+airflow/*.db
+# ...salvo los logs guardados a proposito como evidencia de un paso
+!labs/paso-4/evidencia_logs/*.log
+
+# --- Datos sintéticos generados (se regeneran con la semilla) ---
+labs/**/data/
+
+# --- Artefactos generados por herramientas ---
+.playwright-mcp/
+diagramas/*.visual-check.*
+
+# --- Sistema operativo / editores ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

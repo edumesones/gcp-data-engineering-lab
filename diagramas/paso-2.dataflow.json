@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "Paso 2 · De un CSV a una tabla que poda",
+    "output": "paso-2.html",
+    "quality_profile": "showcase",
+    "viewBox": [1068, 560],
+    "legend": {
+      "entries": {
+        "security": { "label": "identidad y permisos" }
+      }
+    }
+  },
+  "stages": [
+    { "label": "Generación" },
+    { "label": "Carga" },
+    { "label": "Tabla" },
+    { "label": "Consultas" },
+    { "label": "Evidencia" }
+  ],
+  "nodes": [
+    { "id": "generador", "type": "backend", "label": "Generador", "sublabel": "semilla fija", "stage": 0, "row": 0, "tag": "sin PII" },
+    { "id": "manifiesto", "type": "database", "label": "Manifiesto", "sublabel": "filas por día", "stage": 0, "row": 2 },
+    { "id": "csv", "type": "database", "label": "CSV", "sublabel": "1,96 M filas", "stage": 1, "row": 0 },
+    { "id": "pipeline", "type": "security", "label": "sdag-pipeline", "sublabel": "impersonada", "stage": 1, "row": 2 },
+    { "id": "tabla", "type": "database", "label": "transacciones", "sublabel": "90 particiones", "stage": 2, "row": 1, "tag": "filtro obligatorio" },
+    { "id": "dia", "type": "backend", "label": "Un día", "sublabel": "fecha constante", "stage": 3, "row": 0 },
+    { "id": "trimestre", "type": "backend", "label": "90 días", "sublabel": "rango completo", "stage": 3, "row": 2 },
+    { "id": "stats", "type": "cloud", "label": "Job stats", "sublabel": "bytes y particiones", "stage": 4, "row": 1 }
+  ],
+  "flows": [
+    { "from": "generador", "to": "csv", "label": "escribe", "classification": "reproducible", "variant": "emphasis" },
+    { "from": "generador", "to": "manifiesto", "label": "filas/día", "classification": "control" },
+    { "from": "csv", "to": "tabla", "label": "bq load", "classification": "atómico y gratis", "variant": "emphasis" },
+    { "from": "pipeline", "to": "tabla", "label": "crea y carga", "classification": "sin claves", "variant": "security" },
+    { "from": "tabla", "to": "dia", "label": "1 partición", "classification": "966 KB", "variant": "emphasis" },
+    { "from": "tabla", "to": "trimestre", "label": "90 particiones", "classification": "68,5 MB", "labelDx": 46 },
+    { "from": "dia", "to": "stats", "label": "1,41 %", "classification": "poda demostrada", "variant": "emphasis" },
+    { "from": "trimestre", "to": "stats", "label": "línea base", "classification": "referencia" }
+  ],
+  "cards": [
+    { "dot": "emerald", "title": "Poda medida, no supuesta", "items": ["Un día: 1 partición y 966.472 bytes procesados", "Noventa días: 90 particiones y 68.515.449 bytes", "Se compara lo procesado: lo facturado tiene un mínimo de 10 MiB", "Con la caché activa habría medido 0 bytes", "Filas por partición contra el manifiesto: 0 diferencias"] },
+    { "dot": "rose", "title": "El filtro tiene que podar", "items": ["require_partition_filter rechaza la consulta sin filtro de fecha", "EXTRACT(MONTH FROM fecha) falla igual: menciona pero no poda", "Sin expiración: se calcula desde la fecha de la partición"] },
+    { "dot": "slate", "title": "Lo que no se pudo demostrar", "items": ["El clustering no ahorró nada en una partición de 1,6 MB", "A 90 días ahorró un 3,7 %", "La colocación es por bloques, no por filas"] }
+  ]
+}

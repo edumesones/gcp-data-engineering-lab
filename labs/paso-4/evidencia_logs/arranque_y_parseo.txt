@@ -1,0 +1,9 @@
+capturado_utc: 2026-09-14T10:55:11Z
+imagen=apache/airflow:2.11.1 oom_killed=false reinicios=0 mem_limit_bytes=2147483648 arranque=2026-09-14T09:58:26.351823988Z
+airflow version: 2.11.1
+airflow dags list-import-errors: No data found
+[2026-09-14T10:55:22.821+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags
+DagBag import_errors: ninguno
+end_date: 2026-09-04 23:59:59+00:00 | schedule: @daily | catchup: False | max_active_runs: 1
+tareas: ['esperar_fichero', 'cargar_staging', 'validar_staging', 'merge_al_destino', 'comprobar_destino']
+merge job_id: sdag_p4r3_{{ params.destino }}_{{ ds_nodash }}_t{{ ti.try_number }} | force_rerun: True | reattach_states: set()

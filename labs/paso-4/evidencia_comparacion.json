@@ -1,0 +1,52 @@
+{
+  "ejecutado_utc": "2026-09-14T10:07:24Z",
+  "fichero": "labs/paso-4/sql/02_comparar.sql",
+  "consultas": [
+    {
+      "consulta": "[1] RESUMEN POR TABLA",
+      "filas": [
+        {
+          "filas": "70817",
+          "huella": "792921986835855836",
+          "ids_unicos": "70817",
+          "tabla": "p4_diario"
+        },
+        {
+          "filas": "70817",
+          "huella": "792921986835855836",
+          "ids_unicos": "70817",
+          "tabla": "p4_backfill"
+        }
+      ]
+    },
+    {
+      "consulta": "[2] DIFERENCIA FILA A FILA EN LOS DOS SENTIDOS",
+      "filas": [
+        {
+          "filas_solo_en_backfill": "0",
+          "filas_solo_en_diario": "0"
+        }
+      ]
+    },
+    {
+      "consulta": "[3] FILAS POR DÍA EN CADA TABLA",
+      "filas": [
+        {
+          "fecha": "2026-09-02",
+          "filas_backfill": "19796",
+          "filas_diario": "19796"
+        },
+        {
+          "fecha": "2026-09-03",
+          "filas_backfill": "23201",
+          "filas_diario": "23201"
+        },
+        {
+          "fecha": "2026-09-04",
+          "filas_backfill": "27820",
+          "filas_diario": "27820"
+        }
+      ]
+    }
+  ]
+}

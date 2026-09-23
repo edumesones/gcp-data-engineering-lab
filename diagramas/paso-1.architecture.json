@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Paso 1 · Proyecto, presupuesto e identidad",
+    "output": "paso-1.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    { "id": "usuario", "type": "external", "label": "Usuario", "sublabel": "gcloud · sdag-lab", "pos": [40, 320], "size": [170, 64] },
+    { "id": "pipeline-sa", "type": "security", "label": "sdag-pipeline", "sublabel": "cuenta de servicio · 0 claves", "pos": [380, 320], "size": [200, 64], "tag": "Token Creator: solo el usuario" },
+    { "id": "bigquery", "type": "cloud", "label": "BigQuery", "sublabel": "sin datasets todavía", "pos": [760, 320], "size": [200, 64], "brand": "google-cloud" },
+    { "id": "billing", "type": "external", "label": "Cuenta de facturación", "sublabel": "XXXXXX-… · EUR", "pos": [760, 110], "size": [200, 64] },
+    { "id": "budget", "type": "security", "label": "sdag-lab-1EUR", "sublabel": "1 € · solo aviso", "pos": [380, 110], "size": [200, 64], "tag": "EXCLUDE_ALL_CREDITS" },
+    { "id": "other-projects", "type": "external", "label": "3 proyectos previos", "sublabel": "fuera del presupuesto", "pos": [1120, 110], "size": [190, 64] }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Proyecto sdag-lab-000000 · sin organización", "wraps": ["pipeline-sa", "bigquery"] }
+  ],
+  "connections": [
+    { "id": "impersonate", "from": "usuario", "to": "pipeline-sa", "label": "impersona", "variant": "security" },
+    { "id": "run-jobs", "from": "pipeline-sa", "to": "bigquery", "label": "bigquery.jobUser", "variant": "emphasis" },
+    { "id": "pays-lab", "from": "billing", "to": "bigquery", "label": "paga el uso", "variant": "dashed", "fromSide": "bottom", "toSide": "top", "labelDy": 24 },
+    { "id": "cost-to-budget", "from": "billing", "to": "budget", "label": "coste del proyecto" },
+    { "id": "email-alert", "from": "budget", "to": "usuario", "label": "email 50/90/100 %", "variant": "dashed", "fromSide": "left", "toSide": "top" },
+    { "id": "pays-others", "from": "billing", "to": "other-projects", "label": "paga", "variant": "dashed" }
+  ],
+  "cards": [
+    { "dot": "rose", "title": "Coste: avisa, no frena", "items": ["El presupuesto solo avisa por email; el coste llega con retraso", "Spend cap (Preview) no cubre BigQuery, Storage, KMS ni SDP", "Paso 2: cuota QueryUsagePerDay en BigQuery"] },
+    { "dot": "violet", "title": "Identidad sin claves", "items": ["Impersonación con credenciales de corta duración", "Token Creator sobre la cuenta, no en el proyecto", "jobUser ejecuta consultas, no da acceso a datos"] },
+    { "dot": "slate", "title": "Estado tras el paso 1", "items": ["Verificación independiente: PASA", "Sin datasets ni buckets todavía", "Sin organización: sin carpetas"] }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "nota": "Exportado el 2026-09-14 tras el backfill fallido de las 09:52:39 UTC. Ese backfill se apropio de estas tres ejecuciones manuales: cambio run_type a 'backfill', sobrescribio conf con {'destino': 'p4_backfill'} y reinicio start_date/end_date de la ejecucion. NO ejecuto ninguna tarea. Los campos fiables del camino diario son los de las tareas (horas 09:43-09:51) y los MERGE hacia p4_diario en BigQuery.",
+  "campos_alterados_por_el_backfill": [
+    "run_type",
+    "conf",
+    "run.start_date",
+    "run.end_date"
+  ],
+  "ejecuciones": [
+    {
+      "run_id": "manual__2026-09-02T00:00:00+00:00",
+      "run_type_actual": "backfill",
+      "conf_actual": {
+        "destino": "p4_backfill"
+      },
+      "estado": "success",
+      "logical_date": "2026-09-02T00:00:00+00:00",
+      "data_interval_start": "2026-09-01T00:00:00+00:00",
+      "data_interval_end": "2026-09-02T00:00:00+00:00",
+      "run_start_date": "2026-09-14T09:52:39.139642+00:00",
+      "run_end_date": "2026-09-14T09:52:39.235938+00:00",
+      "tareas": [
+        {
+          "task_id": "esperar_fichero",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:43:10.940949+00:00",
+          "fin": "2026-09-14T09:43:11.518863+00:00"
+        },
+        {
+          "task_id": "cargar_staging",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:43:18.683675+00:00",
+          "fin": "2026-09-14T09:43:22.375808+00:00"
+        },
+        {
+          "task_id": "validar_staging",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:43:29.501943+00:00",
+          "fin": "2026-09-14T09:43:31.719533+00:00"
+        },
+        {
+          "task_id": "merge_al_destino",
+          "estado": "success",
+          "intentos": 4,
+          "inicio": "2026-09-14T09:51:02.739490+00:00",
+          "fin": "2026-09-14T09:51:05.921190+00:00"
+        },
+        {
+          "task_id": "comprobar_destino",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:51:12.801864+00:00",
+          "fin": "2026-09-14T09:51:14.872748+00:00"
+        }
+      ]
+    },
+    {
+      "run_id": "manual__2026-09-03T00:00:00+00:00",
+      "run_type_actual": "backfill",
+      "conf_actual": {
+        "destino": "p4_backfill"
+      },
+      "estado": "success",
+      "logical_date": "2026-09-03T00:00:00+00:00",
+      "data_interval_start": "2026-09-02T00:00:00+00:00",
+      "data_interval_end": "2026-09-03T00:00:00+00:00",
+      "run_start_date": "2026-09-14T09:52:39.156849+00:00",
+      "run_end_date": "2026-09-14T09:52:39.233650+00:00",
+      "tareas": [
+        {
+          "task_id": "esperar_fichero",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:46:02.831671+00:00",
+          "fin": "2026-09-14T09:46:03.358226+00:00"
+        },
+        {
+          "task_id": "cargar_staging",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:46:10.334939+00:00",
+          "fin": "2026-09-14T09:46:15.357605+00:00"
+        },
+        {
+          "task_id": "validar_staging",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:46:22.071209+00:00",
+          "fin": "2026-09-14T09:46:24.101285+00:00"
+        },
+        {
+          "task_id": "merge_al_destino",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:46:30.953366+00:00",
+          "fin": "2026-09-14T09:46:34.432808+00:00"
+        },
+        {
+          "task_id": "comprobar_destino",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:46:41.501242+00:00",
+          "fin": "2026-09-14T09:46:43.820443+00:00"
+        }
+      ]
+    },
+    {
+      "run_id": "manual__2026-09-04T00:00:00+00:00",
+      "run_type_actual": "backfill",
+      "conf_actual": {
+        "destino": "p4_backfill"
+      },
+      "estado": "success",
+      "logical_date": "2026-09-04T00:00:00+00:00",
+      "data_interval_start": "2026-09-03T00:00:00+00:00",
+      "data_interval_end": "2026-09-04T00:00:00+00:00",
+      "run_start_date": "2026-09-14T09:52:39.165582+00:00",
+      "run_end_date": "2026-09-14T09:52:39.231860+00:00",
+      "tareas": [
+        {
+          "task_id": "esperar_fichero",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:46:51.318780+00:00",
+          "fin": "2026-09-14T09:46:51.905330+00:00"
+        },
+        {
+          "task_id": "cargar_staging",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:46:58.862505+00:00",
+          "fin": "2026-09-14T09:47:01.519470+00:00"
+        },
+        {
+          "task_id": "validar_staging",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:47:08.189134+00:00",
+          "fin": "2026-09-14T09:47:10.152182+00:00"
+        },
+        {
+          "task_id": "merge_al_destino",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:47:17.154549+00:00",
+          "fin": "2026-09-14T09:47:20.455082+00:00"
+        },
+        {
+          "task_id": "comprobar_destino",
+          "estado": "success",
+          "intentos": 1,
+          "inicio": "2026-09-14T09:47:27.389907+00:00",
+          "fin": "2026-09-14T09:47:29.539690+00:00"
+        }
+      ]
+    }
+  ]
+}
