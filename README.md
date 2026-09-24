@@ -11,6 +11,22 @@ gaps are.
 
 ---
 
+
+## Architecture
+
+```mermaid
+flowchart LR
+    SYN["synthetic banking data<br/>seeded generators"] --> GCS[("Cloud Storage")]
+    GCS --> AF["Airflow DAG<br/>local Docker"]
+    AF --> STG[("BigQuery<br/>staging")]
+    STG -->|MERGE| BQ[("BigQuery<br/>partitioned + clustered")]
+    BQ --> Q["pruned queries<br/>bytes measured"]
+    AF -.backfill = daily runs.-> STG
+    subgraph V ["verified per step"]
+        AC["falsifiable acceptance criterion"] --> IND["independent agent<br/>verificacion/"]
+    end
+```
+
 ## What makes it different: a falsifiable acceptance criterion per step
 
 Every step is written down with an **acceptance criterion that can fail** *before* anything is built.
